@@ -1,22 +1,28 @@
 /* ==========================================================================
-   BAS-SOFTWARE | Responsive Stylesheet
-   Breakpoints: Mobile (<= 768px), Tablet (769px - 1024px), Small Mobile (<= 480px)
+   BAS-SOFTWARE SOLUTIONS | Responsive Enhancements & Breakpoints
+   Lead Developer & Architect: Bilal Shah
+   Mobile-First Breakpoint Architecture:
+   - Extra Small Mobile (<= 400px)
+   - Standard Mobile (401px - 640px)
+   - Phablets & Small Tablets (641px - 768px)
+   - Tablets & Small Desktops (769px - 1024px)
+   - Large Displays (>= 1025px)
    ========================================================================== */
 
-/* Tablets & Smaller Desktops */
+/* ==========================================================================
+   Tablets & Smaller Laptops (769px - 1024px)
+   ========================================================================== */
 @media (max-width: 1024px) {
-  .hero-grid {
-    grid-template-columns: 1fr;
-    gap: 40px;
+  .site-header .navbar {
+    height: 68px;
   }
 
-  .hero-title {
-    font-size: 2.8rem;
+  .nav-links {
+    display: none;
   }
 
-  .case-study-grid {
-    grid-template-columns: 1fr;
-    gap: 32px;
+  .mobile-nav-toggle {
+    display: flex;
   }
 
   .services-grid {
@@ -34,54 +40,79 @@
   .inquiry-grid {
     grid-template-columns: 1fr;
     gap: 36px;
-    padding: 36px 28px;
   }
 }
 
-/* Mobile Devices (<= 768px) */
+/* ==========================================================================
+   Phablets & Mobile Landscape (641px - 768px)
+   ========================================================================== */
 @media (max-width: 768px) {
-  .navbar {
-    height: 68px;
-  }
-
-  .nav-links {
+  .header-actions .back-to-store-btn {
     display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background: #090e1a;
+  }
+
+  .header-actions .header-wa-text {
+    display: none;
+  }
+
+  .header-actions .header-wa-btn {
+    padding: 8px 12px;
+    font-size: 1.1rem;
+    min-height: 40px;
+  }
+
+  .hero-stats-row {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+
+  .case-study-card {
+    padding: 22px 18px;
+  }
+
+  .case-study-title {
+    font-size: 1.6rem;
+  }
+
+  .preview-item-left span {
+    max-width: 190px;
+  }
+
+  .footer-inner {
     flex-direction: column;
-    padding: 24px;
-    gap: 16px;
-    border-bottom: 1px solid var(--border-subtle);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7);
+    text-align: center;
+    gap: 20px;
   }
 
-  .nav-links.mobile-open {
-    display: flex;
+  .footer-nav {
+    justify-content: center;
+  }
+}
+
+/* ==========================================================================
+   Standard Mobile (401px - 640px)
+   ========================================================================== */
+@media (max-width: 640px) {
+  .site-header .navbar {
+    height: 64px;
   }
 
-  .mobile-nav-toggle {
-    display: block;
+  .brand-icon-box {
+    width: 38px;
+    height: 38px;
+    font-size: 1.1rem;
+  }
+
+  .brand-text {
+    font-size: 1.12rem;
+  }
+
+  .brand-subtext {
+    font-size: 0.6rem;
   }
 
   .hero-section {
-    padding: 50px 0 40px;
-  }
-
-  .hero-title {
-    font-size: 2.2rem;
-    letter-spacing: -0.8px;
-  }
-
-  .hero-desc {
-    font-size: 1rem;
-  }
-
-  .hero-cta-group {
-    flex-direction: column;
-    align-items: stretch;
+    padding: 36px 0 40px;
   }
 
   .hero-cta-group .btn {
@@ -89,35 +120,38 @@
   }
 
   .hero-stats-row {
-    grid-template-columns: 1fr;
-    gap: 14px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    padding-top: 18px;
   }
 
   .stat-item {
-    background: rgba(255, 255, 255, 0.02);
-    padding: 12px 16px;
-    border-radius: var(--radius-sm);
-    border: 1px solid var(--border-subtle);
+    padding: 10px 6px;
   }
 
-  .section {
-    padding: 60px 0;
+  .stat-number-wrap {
+    font-size: 1.35rem;
   }
 
-  .section-title {
-    font-size: 2rem;
+  .stat-item p {
+    font-size: 0.7rem;
   }
 
-  .case-study-card {
-    padding: 24px 18px;
+  .terminal-header {
+    padding: 8px 12px;
   }
 
-  .case-study-title {
-    font-size: 1.8rem;
+  .terminal-tab span {
+    font-size: 0.72rem;
   }
 
-  .case-study-highlights {
-    grid-template-columns: 1fr;
+  .terminal-copy-btn .copy-label {
+    display: none;
+  }
+
+  .terminal-code-block {
+    font-size: 0.78rem;
+    line-height: 1.7;
   }
 
   .services-grid {
@@ -132,41 +166,206 @@
     grid-template-columns: 1fr;
   }
 
+  .case-study-highlights {
+    grid-template-columns: 1fr;
+  }
+
   .form-row {
     grid-template-columns: 1fr;
   }
 
   .inquiry-grid {
-    padding: 24px 18px;
+    padding: 20px 16px;
   }
 
-  .inquiry-title {
-    font-size: 1.8rem;
+  .channel-item {
+    padding: 12px 14px;
   }
 
-  .footer-inner {
-    flex-direction: column;
-    text-align: center;
-    gap: 18px;
+  .channel-icon {
+    width: 38px;
+    height: 38px;
+    font-size: 1.15rem;
   }
 
-  .footer-links {
-    flex-wrap: wrap;
+  .channel-details strong {
+    font-size: 0.88rem;
+  }
+
+  /* Compact round floating WhatsApp on mobile to avoid overlapping */
+  .floating-wa-btn {
+    padding: 12px;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
     justify-content: center;
+  }
+
+  .floating-wa-label {
+    display: none;
+  }
+
+  .floating-wa-btn i {
+    font-size: 1.6rem;
   }
 }
 
-/* Small Screens (<= 480px) */
-@media (max-width: 480px) {
-  .hero-title {
-    font-size: 1.9rem;
+/* ==========================================================================
+   Ultra-Compact Screens (<= 400px - iPhone SE, Galaxy Fold Cover, etc.)
+   ========================================================================== */
+@media (max-width: 400px) {
+  .container {
+    padding: 0 12px;
+  }
+
+  .brand-area {
+    gap: 8px;
+  }
+
+  .brand-icon-box {
+    width: 34px;
+    height: 34px;
+    font-size: 1rem;
+    border-radius: 8px;
   }
 
   .brand-text {
+    font-size: 1rem;
+  }
+
+  .brand-subtext {
+    display: none;
+  }
+
+  .mobile-nav-toggle {
+    width: 38px;
+    height: 38px;
     font-size: 1.1rem;
   }
 
-  .back-to-store-btn span {
+  .hero-title {
+    font-size: 1.95rem;
+    letter-spacing: -0.5px;
+  }
+
+  .hero-lead-badge {
+    font-size: 0.72rem;
+    padding: 4px 8px;
+  }
+
+  .hero-stats-row {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+  }
+
+  .stat-item {
+    padding: 8px 4px;
+  }
+
+  .stat-number-wrap {
+    font-size: 1.2rem;
+  }
+
+  .stat-item p {
+    font-size: 0.65rem;
+  }
+
+  .terminal-dots {
     display: none;
+  }
+
+  .terminal-tab {
+    padding: 4px 6px;
+    font-size: 0.68rem;
+  }
+
+  .card-pill {
+    font-size: 0.68rem;
+    padding: 3px 8px;
+  }
+
+  .case-study-card {
+    padding: 16px 12px;
+  }
+
+  .case-study-title {
+    font-size: 1.4rem;
+  }
+
+  .highlight-box {
+    padding: 10px;
+    gap: 10px;
+  }
+
+  .highlight-box strong {
+    font-size: 0.85rem;
+  }
+
+  .highlight-box span {
+    font-size: 0.76rem;
+  }
+
+  .preview-item {
+    padding: 8px 10px;
+  }
+
+  .preview-item-left span {
+    font-size: 0.78rem;
+    max-width: 150px;
+  }
+
+  .preview-badge {
+    font-size: 0.68rem;
+  }
+
+  .service-card {
+    padding: 18px 14px;
+  }
+
+  .service-title {
+    font-size: 1.15rem;
+  }
+
+  .tech-column {
+    padding: 16px 12px;
+  }
+
+  .inquiry-grid {
+    padding: 16px 12px;
+  }
+
+  .inquiry-title {
+    font-size: 1.55rem;
+  }
+}
+
+/* ==========================================================================
+   High DPI / Retina Display Sharpness
+   ========================================================================== */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .hero-visual-card,
+  .case-study-card,
+  .service-card,
+  .tech-column,
+  .workflow-card,
+  .inquiry-grid {
+    border-width: 1px;
+  }
+}
+
+/* ==========================================================================
+   Reduced Motion Preferences (Accessibility / Battery Saver)
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .floating-wa-pulse,
+  .pulse-dot {
+    animation: none;
   }
 }

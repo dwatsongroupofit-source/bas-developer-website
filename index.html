@@ -2,17 +2,20 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BAS-Software Solutions | Bilal Shah - Company Software &amp; Web Development</title>
-  <meta name="description" content="BAS-Software Solutions founded by Bilal Shah — Creator of Bilal Accounting System (BAS) and official technology partner of D. Watson Chemist &amp; Superstore (Our Corporate Client). Custom company software, ERP, accounting systems, e-commerce, and high-performance websites. Contact via WhatsApp: 0348-5511763.">
-  <meta name="keywords" content="BAS-Software Solutions, Bilal Shah, Bilal Accounting System, BAS Accounting, Company Software Pakistan, Web Development Islamabad, Custom Software Developer, E-Commerce Developer, ERP Software">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>BAS-Software Solutions | Bilal Shah - Lead Software Engineer &amp; Web Architect</title>
+  <meta name="description" content="BAS-Software Solutions founded by Bilal Shah — Creator of Bilal Accounting System (BAS) and official technology partner of D. Watson Chemist &amp; Superstore. Custom company software, ERP, high-volume e-commerce, and modern corporate websites. Direct WhatsApp: 0348-5511763.">
+  <meta name="keywords" content="BAS-Software Solutions, Bilal Shah, Bilal Accounting System, BAS Accounting, Company Software Pakistan, Web Development Islamabad, Custom Software Developer, E-Commerce Developer, ERP Software, D Watson Developer">
+  <meta name="author" content="Bilal Shah">
   <meta name="theme-color" content="#070a12">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
   <!-- Open Graph / Meta -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="BAS-Software Solutions | Bilal Shah - Lead Software Engineer">
-  <meta property="og:description" content="Need custom software for your company or a modern high-performance website? Contact Bilal Shah at BAS-Software Solutions. WhatsApp: 0348-5511763.">
-  <meta property="og:image" content="../assets/images/store_flagship.jpg">
+  <meta property="og:description" content="Custom software engineering, Bilal Accounting System (BAS), and corporate web platforms. Trusted by D. Watson Chemist &amp; Superstore. WhatsApp: 0348-5511763.">
+  <meta property="og:site_name" content="BAS-Software Solutions">
 
   <!-- Google Fonts: Outfit, Plus Jakarta Sans, JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,104 +25,124 @@
   <!-- Font Awesome 6.5.1 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="../assets/images/favicon.png">
-  <link rel="shortcut icon" href="../favicon.ico">
+  <!-- Favicon (SVG + Data URI for 0 404s) -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23070a12'/%3E%3Cpath d='M32 30 L16 50 L32 70 M68 30 L84 50 L68 70 M58 22 L42 78' stroke='%23e11d48' stroke-width='8' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E">
 
   <!-- Stylesheets -->
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/responsive.css">
-
-  <style>
-    /* Floating WhatsApp Button */
-    .floating-wa-btn {
-      position: fixed;
-      bottom: 28px;
-      right: 28px;
-      width: 62px;
-      height: 62px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2rem;
-      box-shadow: 0 8px 25px rgba(37, 211, 102, 0.45);
-      z-index: 9999;
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-      border: 2px solid rgba(255, 255, 255, 0.3);
-    }
-    .floating-wa-btn:hover {
-      transform: scale(1.1) translateY(-3px);
-      box-shadow: 0 12px 30px rgba(37, 211, 102, 0.65);
-    }
-    .floating-wa-pulse {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      background: rgba(37, 211, 102, 0.4);
-      animation: waPulse 2s infinite;
-      z-index: -1;
-    }
-    @keyframes waPulse {
-      0% { transform: scale(1); opacity: 0.8; }
-      100% { transform: scale(1.5); opacity: 0; }
-    }
-  </style>
 </head>
 <body>
 
   <!-- Ambient Background Glows -->
-  <div class="ambient-glow-1"></div>
-  <div class="ambient-glow-2"></div>
+  <div class="ambient-glow-1" aria-hidden="true"></div>
+  <div class="ambient-glow-2" aria-hidden="true"></div>
 
-  <!-- Floating Quick WhatsApp Button -->
-  <a href="javascript:void(0)" onclick="openDirectWhatsApp('Quick Consultation via Floating Button')" class="floating-wa-btn" title="Chat Directly on WhatsApp: 0348-5511763" aria-label="WhatsApp Bilal Shah">
-    <div class="floating-wa-pulse"></div>
-    <i class="fa-brands fa-whatsapp"></i>
-  </a>
+  <!-- Toast Notification Container -->
+  <div id="toastNotification" class="toast-notification" role="status" aria-live="polite"></div>
+
+  <!-- Mobile Floating Quick Contact Button -->
+  <aside class="floating-wa-container" aria-label="Quick WhatsApp Contact">
+    <a href="javascript:void(0)" onclick="openDirectWhatsApp('Quick Consultation via Floating Button')" class="floating-wa-btn" title="Chat Directly on WhatsApp: 0348-5511763" aria-label="Chat on WhatsApp with Bilal Shah">
+      <div class="floating-wa-pulse" aria-hidden="true"></div>
+      <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+      <span class="floating-wa-label">WhatsApp</span>
+    </a>
+  </aside>
+
+  <!-- Mobile Navigation Drawer & Backdrop -->
+  <div class="mobile-drawer-overlay" id="mobileDrawerOverlay" aria-hidden="true"></div>
+  
+  <nav class="mobile-drawer" id="mobileDrawer" aria-label="Mobile Navigation Menu" aria-hidden="true">
+    <div class="mobile-drawer-header">
+      <a href="index.html" class="brand-logo" title="BAS-Software Solutions">
+        <div class="brand-icon-box">
+          <i class="fa-solid fa-code"></i>
+        </div>
+        <div>
+          <div class="brand-text">BAS-<span>Software</span></div>
+          <small class="brand-subtext">BILAL SHAH &bull; LEAD DEV</small>
+        </div>
+      </a>
+      <button type="button" class="drawer-close-btn" id="drawerCloseBtn" aria-label="Close Navigation Menu">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <div class="drawer-status-chip">
+      <span class="pulse-dot"></span>
+      <span>Available for New Projects</span>
+    </div>
+
+    <ul class="mobile-drawer-links">
+      <li><a href="#about" class="drawer-link"><i class="fa-solid fa-user-tie"></i> <span>About Me</span></a></li>
+      <li><a href="#services" class="drawer-link"><i class="fa-solid fa-cubes"></i> <span>Services</span></a></li>
+      <li><a href="#portfolio" class="drawer-link"><i class="fa-solid fa-laptop-code"></i> <span>Portfolio &amp; Software</span></a></li>
+      <li><a href="#techstack" class="drawer-link"><i class="fa-solid fa-microchip"></i> <span>Skills &amp; Tech Stack</span></a></li>
+      <li><a href="#process" class="drawer-link"><i class="fa-solid fa-route"></i> <span>How We Work</span></a></li>
+      <li><a href="#contact" class="drawer-link"><i class="fa-solid fa-paper-plane"></i> <span>Hire &amp; Inquire</span></a></li>
+    </ul>
+
+    <div class="drawer-cta-section">
+      <a href="https://wa.me/923485511763?text=Hello%20Bilal%20Shah!%20I%20want%20to%20discuss%20a%20project%20with%20BAS-Software%20Solutions." target="_blank" class="btn btn-whatsapp btn-full">
+        <i class="fa-brands fa-whatsapp"></i>
+        <span>WhatsApp: 0348-5511763</span>
+      </a>
+      <a href="tel:+923485511763" class="btn btn-secondary btn-full">
+        <i class="fa-solid fa-phone"></i>
+        <span>Direct Call: 0348-5511763</span>
+      </a>
+      <a href="https://www.dwatson.co/" target="_blank" rel="noopener noreferrer" class="btn btn-dark-outline btn-full">
+        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        <span>Our Client: www.dwatson.co</span>
+      </a>
+    </div>
+
+    <div class="drawer-footer">
+      <p>&copy; 2026 BAS-Software Solutions &bull; Bilal Shah</p>
+    </div>
+  </nav>
 
   <!-- Header Navigation -->
   <header class="site-header" id="siteHeader">
-    <div class="container">
-      <nav class="navbar">
+    <div class="container header-container">
+      <nav class="navbar" aria-label="Main Navigation">
         <div class="brand-area">
-          <a href="index.html" class="brand-logo" title="BAS-Software Solutions">
+          <a href="index.html" class="brand-logo" title="BAS-Software Solutions - Bilal Shah">
             <div class="brand-icon-box">
-              <i class="fa-solid fa-laptop-code"></i>
+              <i class="fa-solid fa-code"></i>
             </div>
-            <div>
+            <div class="brand-copy">
               <div class="brand-text">BAS-<span>Software</span></div>
-              <small style="display:block; font-size:0.68rem; color:#94A3B8; font-weight:600; letter-spacing:0.5px; margin-top:-3px;">SOLUTIONS &bull; BILAL SHAH</small>
+              <small class="brand-subtext">SOLUTIONS &bull; BILAL SHAH</small>
             </div>
           </a>
-          <div class="badge badge-status" style="display: inline-flex;">
+          <div class="badge badge-status header-status-badge">
             <span class="pulse-dot"></span>
-            <span>Available for New Projects</span>
+            <span>Available for Projects</span>
           </div>
         </div>
 
         <ul class="nav-links" id="navLinks">
-          <li><a href="#about" class="nav-link">About Me</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
           <li><a href="#services" class="nav-link">Services</a></li>
-          <li><a href="#portfolio" class="nav-link">Portfolio &amp; Software</a></li>
-          <li><a href="#techstack" class="nav-link">Skills &amp; Stack</a></li>
-          <li><a href="#process" class="nav-link">How We Work</a></li>
-          <li><a href="#contact" class="nav-link">Hire / Inquire</a></li>
+          <li><a href="#portfolio" class="nav-link">Portfolio &amp; ERP</a></li>
+          <li><a href="#techstack" class="nav-link">Skills</a></li>
+          <li><a href="#process" class="nav-link">Process</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
         </ul>
 
         <div class="header-actions">
-          <a href="https://wa.me/923485511763?text=Hello%20Bilal%20Shah!%20I%20visited%20BAS-Software%20Solutions%20and%20would%20like%20to%20discuss%20a%20project." target="_blank" class="btn btn-whatsapp btn-sm" title="WhatsApp 03485511763">
+          <a href="https://wa.me/923485511763?text=Hello%20Bilal%20Shah!%20I%20visited%20BAS-Software%20Solutions%20and%20would%20like%20to%20discuss%20a%20project." target="_blank" class="btn btn-whatsapp btn-sm header-wa-btn" title="WhatsApp 0348-5511763">
             <i class="fa-brands fa-whatsapp"></i>
-            <span>0348-5511763</span>
+            <span class="header-wa-text">0348-5511763</span>
           </a>
           <a href="https://www.dwatson.co/" target="_blank" rel="noopener noreferrer" class="back-to-store-btn" title="Visit Our Client: D. Watson Chemist &amp; Superstore (www.dwatson.co)">
             <i class="fa-solid fa-arrow-up-right-from-square"></i>
-            <span>Our Client: www.dwatson.co</span>
+            <span class="client-btn-text">Client: www.dwatson.co</span>
           </a>
-          <button type="button" class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Open Navigation Menu">
+          <button type="button" class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Open Navigation Menu" aria-controls="mobileDrawer" aria-expanded="false">
             <i class="fa-solid fa-bars"></i>
           </button>
         </div>
@@ -127,85 +150,150 @@
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="hero-section" id="about">
-    <div class="container">
-      <div class="hero-grid">
-        <div class="hero-content">
-          <div class="badge badge-glow">
-            <i class="fa-solid fa-award"></i>
-            <span>BAS-Software Solutions &bull; Bilal Shah &bull; Trusted by D. Watson Chemist</span>
+  <main>
+    <!-- Hero Section -->
+    <section class="hero-section" id="about">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-content">
+            <div class="badge badge-glow hero-lead-badge">
+              <i class="fa-solid fa-award"></i>
+              <span>BAS-Software Solutions &bull; Bilal Shah &bull; D. Watson Chemist Partner</span>
+            </div>
+
+            <h1 class="hero-title">
+              Need Custom Software for Your <span class="gradient-accent-text">Company or a Modern Website?</span>
+            </h1>
+
+            <p class="hero-desc">
+              Hi, I am <strong>Bilal Shah</strong>, founder and lead software engineer of <strong>BAS-Software Solutions</strong>. I am the creator of <strong>BAS (Bilal Accounting System)</strong>.
+            </p>
+            <p class="hero-desc client-callout-desc">
+              <i class="fa-solid fa-handshake accent-icon"></i> <strong>D. Watson Chemist &amp; Superstore is our esteemed corporate customer</strong>, for whom we engineered their comprehensive digital platform, 15,000+ SKU catalog search engine, WhatsApp prescription ordering system, and cloud admin studio.
+            </p>
+            <p class="hero-desc sub-desc">
+              Whether your company needs a <strong>complete business accounting &amp; ERP software</strong>, automated inventory, a <strong>high-volume retail e-commerce store</strong>, or a <strong>stunning corporate website</strong> to win clients &mdash; we engineer reliable, high-speed software tailored exactly to your business.
+            </p>
+
+            <div class="hero-cta-group">
+              <button type="button" class="btn btn-whatsapp" onclick="openDirectWhatsApp('Company Software & Web Development Inquiry')">
+                <i class="fa-brands fa-whatsapp"></i>
+                <span>WhatsApp: 0348-5511763</span>
+              </button>
+              <a href="#services" class="btn btn-secondary">
+                <i class="fa-solid fa-cubes"></i>
+                <span>Explore Solutions</span>
+              </a>
+              <button type="button" class="btn btn-ghost-copy" onclick="copyContactPhone()" title="Copy Phone Number">
+                <i class="fa-regular fa-copy"></i>
+                <span>Copy 0348-5511763</span>
+              </button>
+            </div>
+
+            <!-- Responsive Stats Chips Row -->
+            <div class="hero-stats-row">
+              <div class="stat-item">
+                <div class="stat-number-wrap">
+                  <span class="stat-count" data-target="15">0</span>K+
+                </div>
+                <p>Catalog Items Scaled</p>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number-wrap">
+                  <span class="stat-count" data-target="100">0</span>%
+                </div>
+                <p>Custom Tailored Code</p>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number-wrap">
+                  <span class="stat-count" data-target="24">0</span>/7
+                </div>
+                <p>Direct Support &amp; SLA</p>
+              </div>
+            </div>
           </div>
 
-          <h1 class="hero-title">
-            Need Custom Software for Your <span class="gradient-accent-text">Company or a Modern Website?</span>
-          </h1>
+          <!-- Interactive Developer Terminal Card -->
+          <div class="hero-visual-card">
+            <div class="terminal-header">
+              <div class="terminal-dots" aria-hidden="true">
+                <span class="dot-red"></span>
+                <span class="dot-yellow"></span>
+                <span class="dot-green"></span>
+              </div>
+              
+              <!-- Interactive Terminal Tabs -->
+              <div class="terminal-tabs-wrap" role="tablist" aria-label="Terminal Code Tabs">
+                <button type="button" class="terminal-tab active" data-tab="tab-profile" role="tab" aria-selected="true">
+                  <i class="fa-brands fa-js"></i> <span>BilalShah.ts</span>
+                </button>
+                <button type="button" class="terminal-tab" data-tab="tab-erp" role="tab" aria-selected="false">
+                  <i class="fa-solid fa-file-invoice-dollar"></i> <span>BAS-ERP.config</span>
+                </button>
+                <button type="button" class="terminal-tab" data-tab="tab-dwatson" role="tab" aria-selected="false">
+                  <i class="fa-solid fa-layer-group"></i> <span>DWatson.json</span>
+                </button>
+              </div>
 
-          <p class="hero-desc">
-            Hi, I am <strong>Bilal Shah</strong>, founder and lead software engineer of <strong>BAS-Software Solutions</strong>. I am the creator of <strong>BAS (Bilal Accounting System)</strong>.
-          </p>
-          <p class="hero-desc" style="margin-top: -10px; font-size: 1.05rem; color: #cbd5e1;">
-            <i class="fa-solid fa-handshake" style="color: var(--accent-crimson);"></i> <strong>D. Watson Chemist &amp; Superstore is our esteemed corporate customer</strong>, for whom we engineered their entire digital web platform, 15,000+ item catalog search engine, WhatsApp prescription ordering system, and cloud admin studio.
-          </p>
-          <p class="hero-desc" style="margin-top: -10px; font-size: 0.98rem; color: #94a3b8;">
-            Whether your company needs a <strong>complete business accounting &amp; ERP software</strong>, automated inventory, a <strong>high-volume retail e-commerce store</strong>, or a <strong>stunning corporate website</strong> to win clients &mdash; we engineer reliable, high-speed software tailored exactly to your business.
-          </p>
-
-          <div class="hero-cta-group">
-            <button type="button" class="btn btn-whatsapp" onclick="openDirectWhatsApp('Company Software & Web Development Inquiry')">
-              <i class="fa-brands fa-whatsapp" style="font-size: 1.25rem;"></i>
-              <span>WhatsApp: 0348-5511763</span>
-            </button>
-            <a href="#services" class="btn btn-secondary">
-              <i class="fa-solid fa-cubes"></i>
-              <span>Explore Services &amp; Solutions</span>
-            </a>
-          </div>
-
-          <div class="hero-stats-row">
-            <div class="stat-item">
-              <h3><span class="stat-count" data-target="15">0</span>K+</h3>
-              <p>Products &amp; Items Scaled</p>
+              <button type="button" class="terminal-copy-btn" id="terminalCopyBtn" title="Copy Current Code" aria-label="Copy code to clipboard">
+                <i class="fa-regular fa-copy"></i>
+                <span class="copy-label">Copy</span>
+              </button>
             </div>
-            <div class="stat-item">
-              <h3><span class="stat-count" data-target="100">0</span>%</h3>
-              <p>Custom Tailored Code</p>
-            </div>
-            <div class="stat-item">
-              <h3><span class="stat-count" data-target="24">0</span>/7</h3>
-              <p>Direct Support &amp; Maintenance</p>
-            </div>
-          </div>
-        </div>
 
-        <!-- Terminal / Live Developer Card -->
-        <div class="hero-visual-card">
-          <div class="terminal-header">
-            <div class="terminal-dots">
-              <span class="dot-red"></span>
-              <span class="dot-yellow"></span>
-              <span class="dot-green"></span>
+            <!-- Tab 1: BilalShah.ts -->
+            <div class="terminal-body-tab active" id="tab-profile">
+              <pre class="terminal-code-block"><code><span class="code-comment">// BAS-Software Solutions &bull; Bilal Shah Profile</span>
+<span class="code-keyword">const</span> <span class="code-var">developer</span> = {
+  <span class="code-var">leadArchitect</span>: <span class="code-str">'Bilal Shah'</span>,
+  <span class="code-var">agency</span>: <span class="code-str">'BAS-Software Solutions'</span>,
+  <span class="code-var">flagshipProduct</span>: <span class="code-str">'Bilal Accounting System (BAS)'</span>,
+  <span class="code-var">premierCustomer</span>: <span class="code-str">'D. Watson Chemist &amp; Superstore'</span>,
+  <span class="code-var">directWhatsApp</span>: <span class="code-str">'+92 348 5511763 (0348-5511763)'</span>,
+  <span class="code-var">coreCompetencies</span>: [
+    <span class="code-str">'Custom Enterprise ERP &amp; POS Systems'</span>,
+    <span class="code-str">'High-Scale Retail E-Commerce Stores'</span>,
+    <span class="code-str">'Corporate Websites &amp; Cloud Studios'</span>,
+    <span class="code-str">'WhatsApp Automated Prescription Bots'</span>
+  ],
+  <span class="code-func">currentAvailability</span>: () =&gt; <span class="code-str">'Accepting New Corporate Clients'</span>
+};</code></pre>
             </div>
-            <div class="terminal-title">bilal-shah-solutions.ts</div>
-            <div class="badge badge-sm" style="font-size: 0.72rem; padding: 2px 8px; color: #6ee7b7; border-color: rgba(16,185,129,0.3);">🟢 Verified Engineer</div>
-          </div>
 
-          <div class="terminal-body">
-            <p><span class="code-comment">// BAS-Software Solutions Profile</span></p>
-            <p><span class="code-keyword">const</span> <span class="code-var">agency</span> = {</p>
-            <p>&nbsp;&nbsp;<span class="code-var">founder</span>: <span class="code-str">'Bilal Shah'</span>,</p>
-            <p>&nbsp;&nbsp;<span class="code-var">company</span>: <span class="code-str">'BAS-Software Solutions'</span>,</p>
-            <p>&nbsp;&nbsp;<span class="code-var">flagshipSoftware</span>: <span class="code-str">'BAS (Bilal Accounting System)'</span>,</p>
-            <p>&nbsp;&nbsp;<span class="code-var">premierCustomer</span>: <span class="code-str">'D. Watson Chemist &amp; Superstore'</span>,</p>
-            <p>&nbsp;&nbsp;<span class="code-var">directWhatsApp</span>: <span class="code-str">'0348-5511763'</span>,</p>
-            <p>&nbsp;&nbsp;<span class="code-var">coreDeliverables</span>: [</p>
-            <p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-str">'Company Accounting &amp; ERP Software'</span>,</p>
-            <p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-str">'High-Converting E-Commerce Stores'</span>,</p>
-            <p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-str">'Modern Corporate Business Websites'</span>,</p>
-            <p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-str">'Custom Web Applications &amp; Cloud Portals'</span></p>
-            <p>&nbsp;&nbsp;],</p>
-            <p>&nbsp;&nbsp;<span class="code-func">clientAvailability</span>: () =&gt; <span class="code-str">'Accepting New Corporate Clients'</span></p>
-            <p>};</p>
+            <!-- Tab 2: BAS-ERP.config -->
+            <div class="terminal-body-tab" id="tab-erp">
+              <pre class="terminal-code-block"><code><span class="code-comment">// BAS (Bilal Accounting System) Enterprise Engine</span>
+<span class="code-keyword">export default</span> {
+  <span class="code-var">platform</span>: <span class="code-str">'Bilal Accounting System (BAS)'</span>,
+  <span class="code-var">architecture</span>: <span class="code-str">'Multi-Branch Distributed Ledger'</span>,
+  <span class="code-var">modules</span>: {
+    <span class="code-var">generalLedger</span>: <span class="code-str">'Automated Double-Entry Books'</span>,
+    <span class="code-var">posTerminal</span>: <span class="code-str">'Sub-second Barcode &amp; Cashbox POS'</span>,
+    <span class="code-var">inventory</span>: <span class="code-str">'Batch No., Expiry &amp; Multi-Warehouse'</span>,
+    <span class="code-var">reporting</span>: <span class="code-str">'Real-Time P&amp;L, Balance Sheet &amp; Tax'</span>,
+    <span class="code-var">security</span>: <span class="code-str">'Role-Based ACL &amp; Encrypted Backups'</span>
+  },
+  <span class="code-var">status</span>: <span class="code-str">'Active in Multi-Branch Retail Chains'</span>
+};</code></pre>
+            </div>
+
+            <!-- Tab 3: DWatson.json -->
+            <div class="terminal-body-tab" id="tab-dwatson">
+              <pre class="terminal-code-block"><code><span class="code-comment">// Premier Customer: D. Watson Chemist &amp; Superstore</span>
+{
+  <span class="code-var">"client"</span>: <span class="code-str">"D. Watson Chemist &amp; Superstore"</span>,
+  <span class="code-var">"liveWebsite"</span>: <span class="code-str">"https://www.dwatson.co/"</span>,
+  <span class="code-var">"network"</span>: <span class="code-str">"24 Flagship Branches across Pakistan"</span>,
+  <span class="code-var">"catalogSize"</span>: <span class="code-str">"15,000+ Items In-Memory Search"</span>,
+  <span class="code-var">"keyFeatures"</span>: [
+    <span class="code-str">"Instant Sub-Second Product Search"</span>,
+    <span class="code-str">"WhatsApp Branch Prescription Dispatcher"</span>,
+    <span class="code-str">"Encrypted Banner &amp; Voucher Cloud Studio"</span>,
+    <span class="code-str">"Offline Service Worker PWA Caching"</span>
+  ],
+  <span class="code-var">"technologyPartner"</span>: <span class="code-str">"BAS-Software Solutions"</span>
+}</code></pre>
+            </div>
 
             <div class="card-feature-pills">
               <div class="card-pill"><i class="fa-solid fa-file-invoice-dollar"></i> Bilal Accounting System (BAS)</div>
@@ -216,675 +304,678 @@
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Live Software & Web Portfolio Section -->
-  <section class="section" id="portfolio">
-    <div class="container">
-      <div class="section-header">
-        <div class="badge badge-glow">
-          <i class="fa-solid fa-trophy"></i>
-          <span>Live Proof of Capability</span>
+    <!-- Live Software & Web Portfolio Section -->
+    <section class="section" id="portfolio">
+      <div class="container">
+        <div class="section-header">
+          <div class="badge badge-glow">
+            <i class="fa-solid fa-trophy"></i>
+            <span>Live Proof of Capability</span>
+          </div>
+          <h2 class="section-title">Featured <span class="gradient-accent-text">Software &amp; Web Platforms</span></h2>
+          <p class="section-desc">
+            Production systems engineered by Bilal Shah (BAS-Software Solutions) powering real companies, transactions, and catalogs.
+          </p>
         </div>
-        <h2 class="section-title">Featured <span class="gradient-accent-text">Software &amp; Web Platforms</span></h2>
-        <p class="section-desc">
-          Real production systems built and engineered by Bilal Shah (BAS-Software Solutions) powering live businesses and companies.
-        </p>
+
+        <!-- Project 1: BAS (Bilal Accounting System) -->
+        <div class="case-study-card">
+          <div class="case-study-grid">
+            <div class="case-study-content">
+              <div class="case-study-meta">
+                <span class="badge badge-cyan">
+                  <i class="fa-solid fa-file-invoice-dollar"></i> Enterprise Company Software
+                </span>
+                <span class="badge badge-emerald">
+                  <i class="fa-solid fa-check-double"></i> Production Deployed
+                </span>
+              </div>
+
+              <h3 class="case-study-title">BAS &ndash; Bilal Accounting System</h3>
+              <p class="case-study-text">
+                <strong>BAS (Bilal Accounting System)</strong> is an enterprise-grade financial accounting, multi-branch bookkeeping, and inventory management software engineered for companies, retail chains, wholesalers, and corporate enterprises.
+              </p>
+
+              <div class="case-study-highlights">
+                <div class="highlight-box">
+                  <i class="fa-solid fa-calculator"></i>
+                  <div>
+                    <strong>General Ledger &amp; Invoicing</strong>
+                    <span>Double-entry bookkeeping, daily cashbook, accounts payable/receivable, and automated invoices.</span>
+                  </div>
+                </div>
+
+                <div class="highlight-box">
+                  <i class="fa-solid fa-boxes-stacked"></i>
+                  <div>
+                    <strong>Multi-Warehouse Inventory</strong>
+                    <span>Batch tracking, expiry alerts, low-stock warnings, and barcode-ready POS integration.</span>
+                  </div>
+                </div>
+
+                <div class="highlight-box">
+                  <i class="fa-solid fa-chart-line"></i>
+                  <div>
+                    <strong>Financial Reporting &amp; Tax</strong>
+                    <span>Real-time Profit &amp; Loss, Balance Sheets, Trial Balances, and audit-ready tax exports.</span>
+                  </div>
+                </div>
+
+                <div class="highlight-box">
+                  <i class="fa-solid fa-users-gear"></i>
+                  <div>
+                    <strong>Role-Based Security &amp; Logs</strong>
+                    <span>Multi-user permissions for cashiers, managers, and accountants with timestamped audit logs.</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card-btn-row">
+                <button type="button" class="btn btn-whatsapp btn-sm" onclick="openDirectWhatsApp('Inquiring about Bilal Accounting System (BAS) for my Company')">
+                  <i class="fa-brands fa-whatsapp"></i>
+                  <span>Get BAS Software for Your Company</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- BAS Mockup Preview -->
+            <div class="case-study-preview">
+              <div class="preview-browser-header">
+                <div class="terminal-dots" aria-hidden="true">
+                  <span class="dot-red"></span>
+                  <span class="dot-yellow"></span>
+                  <span class="dot-green"></span>
+                </div>
+                <div class="url-bar">
+                  <i class="fa-solid fa-lock" style="color:#10b981; font-size: 0.75rem;"></i>
+                  <span class="url-text">https://bas.dwatson.co/ (Bilal Accounting System)</span>
+                </div>
+              </div>
+
+              <div class="preview-features-list">
+                <div class="preview-item">
+                  <div class="preview-item-left">
+                    <i class="fa-solid fa-cash-register"></i>
+                    <span>Point of Sale (POS) &amp; Billing Terminal</span>
+                  </div>
+                  <span class="preview-badge">Fast</span>
+                </div>
+
+                <div class="preview-item">
+                  <div class="preview-item-left">
+                    <i class="fa-solid fa-book-bookmark"></i>
+                    <span>Automated Balance Sheets &amp; Ledgers</span>
+                  </div>
+                  <span class="preview-badge">Real-Time</span>
+                </div>
+
+                <div class="preview-item">
+                  <div class="preview-item-left">
+                    <i class="fa-solid fa-truck-ramp-box"></i>
+                    <span>Supplier &amp; Purchase Order Workflows</span>
+                  </div>
+                  <span class="preview-badge">Automated</span>
+                </div>
+
+                <div class="preview-item">
+                  <div class="preview-item-left">
+                    <i class="fa-solid fa-building"></i>
+                    <span>Multi-Branch Synchronization</span>
+                  </div>
+                  <span class="preview-badge">Enterprise</span>
+                </div>
+
+                <div class="preview-item">
+                  <div class="preview-item-left">
+                    <i class="fa-solid fa-cloud-arrow-up"></i>
+                    <span>Secure Daily Cloud Backups</span>
+                  </div>
+                  <span class="preview-badge">Encrypted</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2: D. Watson Web Platform -->
+        <div class="case-study-card">
+          <div class="case-study-grid">
+            <div class="case-study-content">
+              <div class="case-study-meta">
+                <span class="badge badge-crimson">
+                  <i class="fa-solid fa-handshake"></i> Our Premier Corporate Customer
+                </span>
+                <span class="badge badge-cyan">
+                  <i class="fa-solid fa-shield-check"></i> Enterprise E-Commerce Platform
+                </span>
+              </div>
+
+              <h3 class="case-study-title">Customer Spotlight: D. Watson Chemist &amp; Superstore</h3>
+              <p class="case-study-text">
+                <strong>D. Watson Chemist &amp; Superstore chose BAS-Software Solutions</strong> as their official technology partner to engineer their comprehensive digital e-commerce and retail platform. Built from scratch to power over 15,000 healthcare, cosmetics, and superstore products across 24 flagship branches in Islamabad, Rawalpindi, Lahore, Faisalabad, and Peshawar.
+              </p>
+
+              <div class="case-study-highlights">
+                <div class="highlight-box">
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                  <div>
+                    <strong>15,000+ Instant Catalog Search</strong>
+                    <span>Sub-second in-memory fuzzy search with category taxonomies and branch inventory indicators.</span>
+                  </div>
+                </div>
+
+                <div class="highlight-box">
+                  <i class="fa-solid fa-prescription"></i>
+                  <div>
+                    <strong>WhatsApp Prescription Ordering</strong>
+                    <span>Automated prescription upload and routing directly to the nearest branch helpline.</span>
+                  </div>
+                </div>
+
+                <div class="highlight-box">
+                  <i class="fa-solid fa-gauge-high"></i>
+                  <div>
+                    <strong>Dynamic Cloud Admin Studio</strong>
+                    <span>AES-256 encrypted management portal for live announcements, hero banners, and vouchers.</span>
+                  </div>
+                </div>
+
+                <div class="highlight-box">
+                  <i class="fa-solid fa-mobile"></i>
+                  <div>
+                    <strong>PWA with Offline Service Worker</strong>
+                    <span>Fast offline caching, native bottom navigation, and zero-stale cache versioning.</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card-btn-row">
+                <a href="https://www.dwatson.co/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                  <span>Open Live www.dwatson.co</span>
+                </a>
+                <button type="button" class="btn btn-secondary btn-sm" onclick="openDirectWhatsApp('Building an E-Commerce Website like D. Watson')">
+                  <i class="fa-brands fa-whatsapp"></i>
+                  <span>Build Similar E-Commerce Site</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Browser Preview -->
+            <div class="case-study-preview">
+              <div class="preview-browser-header">
+                <div class="terminal-dots" aria-hidden="true">
+                  <span class="dot-red"></span>
+                  <span class="dot-yellow"></span>
+                  <span class="dot-green"></span>
+                </div>
+                <div class="url-bar">
+                  <i class="fa-solid fa-lock" style="color:#10b981; font-size: 0.75rem;"></i>
+                  <span class="url-text">https://www.dwatson.co/</span>
+                </div>
+              </div>
+
+              <div class="preview-features-list">
+                <div class="preview-item">
+                  <div class="preview-item-left">
+                    <i class="fa-solid fa-store"></i>
+                    <span>13 Complete Retail Departments</span>
+                  </div>
+                  <span class="preview-badge">Catalog</span>
+                </div>
+
+                <div class="preview-item">
+                  <div class="preview-item-left">
+                    <i class="fa-solid fa-map-location-dot"></i>
+                    <span>24 Flagship Branches Geolocation</span>
+                  </div>
+                  <span class="preview-badge">Live Maps</span>
+                </div>
+
+                <div class="preview-item">
+                  <div class="preview-item-left">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <span>DRAP &amp; Regulatory Compliance</span>
+                  </div>
+                  <span class="preview-badge">Verified</span>
+                </div>
+
+                <div class="preview-item">
+                  <div class="preview-item-left">
+                    <i class="fa-solid fa-bolt"></i>
+                    <span>Ultra-Fast Responsive Performance</span>
+                  </div>
+                  <span class="preview-badge">90+ CWV</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
+    </section>
 
-      <!-- Project 1: BAS (Bilal Accounting System) -->
-      <div class="case-study-card" style="margin-bottom: 36px;">
-        <div class="case-study-grid">
-          <div>
-            <div class="case-study-meta">
-              <span class="badge" style="background: rgba(6, 182, 212, 0.15); color:#67e8f9; border-color: rgba(6, 182, 212, 0.3);">
-                <i class="fa-solid fa-file-invoice-dollar"></i> Enterprise Company Software
-              </span>
-              <span class="badge" style="background: rgba(16, 185, 129, 0.15); color:#6ee7b7; border-color: rgba(16, 185, 129, 0.3);">
-                <i class="fa-solid fa-check-double"></i> Production Deployed
-              </span>
+    <!-- Comprehensive Services Section -->
+    <section class="section section-dark" id="services">
+      <div class="container">
+        <div class="section-header">
+          <div class="badge badge-glow">
+            <i class="fa-solid fa-handshake"></i>
+            <span>What We Offer</span>
+          </div>
+          <h2 class="section-title">Professional <span class="gradient-accent-text">Software &amp; Web Services</span></h2>
+          <p class="section-desc">
+            High-quality, reliable, and scalable digital solutions for companies, businesses, and entrepreneurs. Built custom without bloatware.
+          </p>
+        </div>
+
+        <div class="services-grid">
+          <!-- Service 1: Company Software & Accounting -->
+          <div class="service-card">
+            <div class="service-icon-wrap">
+              <i class="fa-solid fa-file-invoice-dollar"></i>
             </div>
-
-            <h3 class="case-study-title">BAS &ndash; Bilal Accounting System</h3>
-            <p class="case-study-text">
-              <strong>BAS (Bilal Accounting System)</strong> is an enterprise-grade financial accounting, multi-branch bookkeeping, and inventory management software engineered for companies, retail chains, wholesalers, and corporate enterprises.
+            <h3 class="service-title">Company Software &amp; Accounting (ERP)</h3>
+            <p class="service-desc">
+              Custom business software tailored to your company's exact operational flow. Powered by our proven <strong>Bilal Accounting System (BAS)</strong> architecture.
             </p>
+            <ul class="service-features">
+              <li><i class="fa-solid fa-check"></i> Invoicing, Ledgers, Balance Sheets &amp; Tax</li>
+              <li><i class="fa-solid fa-check"></i> Multi-Branch Inventory &amp; Stock Tracking</li>
+              <li><i class="fa-solid fa-check"></i> Point of Sale (POS) &amp; Barcode Integration</li>
+            </ul>
+            <button type="button" class="btn btn-whatsapp btn-sm service-action-btn" onclick="openDirectWhatsApp('Inquiring about Custom Company Software / Accounting System (BAS)')">
+              <i class="fa-brands fa-whatsapp"></i> <span>Inquire for Company</span>
+            </button>
+          </div>
 
-            <div class="case-study-highlights">
-              <div class="highlight-box">
-                <i class="fa-solid fa-calculator"></i>
-                <div>
-                  <strong>Complete General Ledger &amp; Invoicing</strong>
-                  <span>Double-entry bookkeeping, daily cashbook, accounts payable/receivable, and automated invoices.</span>
-                </div>
-              </div>
-
-              <div class="highlight-box">
-                <i class="fa-solid fa-boxes-stacked"></i>
-                <div>
-                  <strong>Multi-Warehouse Inventory Control</strong>
-                  <span>Batch tracking, expiry alerts, low-stock warnings, and barcode-ready POS integration.</span>
-                </div>
-              </div>
-
-              <div class="highlight-box">
-                <i class="fa-solid fa-chart-line"></i>
-                <div>
-                  <strong>Financial Reporting &amp; Tax Sheets</strong>
-                  <span>Real-time Profit &amp; Loss, Balance Sheets, Trial Balances, and audit-ready tax exports.</span>
-                </div>
-              </div>
-
-              <div class="highlight-box">
-                <i class="fa-solid fa-users-gear"></i>
-                <div>
-                  <strong>Role-Based Security &amp; Audit Logs</strong>
-                  <span>Multi-user permissions for cashiers, managers, and accountants with timestamped activity logs.</span>
-                </div>
-              </div>
+          <!-- Service 2: E-Commerce Platforms -->
+          <div class="service-card">
+            <div class="service-icon-wrap">
+              <i class="fa-solid fa-cart-shopping"></i>
             </div>
+            <h3 class="service-title">High-Performance E-Commerce Stores</h3>
+            <p class="service-desc">
+              Full-stack online stores engineered for large catalogs, instant search, fast loading, cart optimization, and automated WhatsApp order dispatch.
+            </p>
+            <ul class="service-features">
+              <li><i class="fa-solid fa-check"></i> 10,000+ SKU Catalog In-Memory Search</li>
+              <li><i class="fa-solid fa-check"></i> WhatsApp Direct One-Tap Ordering</li>
+              <li><i class="fa-solid fa-check"></i> Payment Gateways &amp; Cash on Delivery</li>
+            </ul>
+            <button type="button" class="btn btn-whatsapp btn-sm service-action-btn" onclick="openDirectWhatsApp('Inquiring about E-Commerce Website Development')">
+              <i class="fa-brands fa-whatsapp"></i> <span>Inquire E-Commerce</span>
+            </button>
+          </div>
 
-            <div style="display: flex; gap: 14px; flex-wrap: wrap;">
-              <button type="button" class="btn btn-whatsapp btn-sm" onclick="openDirectWhatsApp('Inquiring about Bilal Accounting System (BAS) for my Company')">
-                <i class="fa-brands fa-whatsapp"></i>
-                <span>Get BAS Software for Your Company (0348-5511763)</span>
-              </button>
+          <!-- Service 3: Corporate & Brand Websites -->
+          <div class="service-card">
+            <div class="service-icon-wrap">
+              <i class="fa-solid fa-globe"></i>
+            </div>
+            <h3 class="service-title">Modern Corporate &amp; Business Websites</h3>
+            <p class="service-desc">
+              Stunning, mobile-responsive websites that establish immediate brand authority, rank high on Google (SEO), and convert visitors into paying clients.
+            </p>
+            <ul class="service-features">
+              <li><i class="fa-solid fa-check"></i> 100% Mobile, Tablet &amp; Desktop Friendly</li>
+              <li><i class="fa-solid fa-check"></i> Google Search SEO &amp; Fast Indexing</li>
+              <li><i class="fa-solid fa-check"></i> Contact Forms, Live Maps &amp; WhatsApp Chat</li>
+            </ul>
+            <button type="button" class="btn btn-whatsapp btn-sm service-action-btn" onclick="openDirectWhatsApp('Inquiring about Corporate Website Development')">
+              <i class="fa-brands fa-whatsapp"></i> <span>Inquire Website</span>
+            </button>
+          </div>
+
+          <!-- Service 4: Custom Web Applications -->
+          <div class="service-card">
+            <div class="service-icon-wrap">
+              <i class="fa-solid fa-laptop-code"></i>
+            </div>
+            <h3 class="service-title">Custom Web Applications &amp; SaaS</h3>
+            <p class="service-desc">
+              Cloud-based software to automate internal company operations, employee management, customer portals, or new SaaS business products.
+            </p>
+            <ul class="service-features">
+              <li><i class="fa-solid fa-check"></i> Multi-User Roles &amp; Permissions</li>
+              <li><i class="fa-solid fa-check"></i> Live Data Sync &amp; Interactive Tables</li>
+              <li><i class="fa-solid fa-check"></i> Custom Business Workflow Logic</li>
+            </ul>
+            <button type="button" class="btn btn-whatsapp btn-sm service-action-btn" onclick="openDirectWhatsApp('Inquiring about Custom Web Application Development')">
+              <i class="fa-brands fa-whatsapp"></i> <span>Inquire Web App</span>
+            </button>
+          </div>
+
+          <!-- Service 5: Admin Dashboards & Portals -->
+          <div class="service-card">
+            <div class="service-icon-wrap">
+              <i class="fa-solid fa-chart-pie"></i>
+            </div>
+            <h3 class="service-title">Custom Business Admin Dashboards</h3>
+            <p class="service-desc">
+              Stop paying monthly SaaS subscriptions. We build private, secure admin studios for your company to control sales, staff, branches, and content.
+            </p>
+            <ul class="service-features">
+              <li><i class="fa-solid fa-check"></i> Real-Time Sales &amp; Revenue Analytics</li>
+              <li><i class="fa-solid fa-check"></i> Promotional Banner &amp; Voucher Manager</li>
+              <li><i class="fa-solid fa-check"></i> AES-256 Encrypted Login Security</li>
+            </ul>
+            <button type="button" class="btn btn-whatsapp btn-sm service-action-btn" onclick="openDirectWhatsApp('Inquiring about Custom Admin Portal / Dashboard')">
+              <i class="fa-brands fa-whatsapp"></i> <span>Inquire Dashboard</span>
+            </button>
+          </div>
+
+          <!-- Service 6: WhatsApp Automations & APIs -->
+          <div class="service-card">
+            <div class="service-icon-wrap">
+              <i class="fa-brands fa-whatsapp"></i>
+            </div>
+            <h3 class="service-title">WhatsApp Bots &amp; API Automations</h3>
+            <p class="service-desc">
+              Automate customer communication, prescription routing, order notifications, and status alerts directly through WhatsApp.
+            </p>
+            <ul class="service-features">
+              <li><i class="fa-solid fa-check"></i> Automated WhatsApp Order Generator</li>
+              <li><i class="fa-solid fa-check"></i> Cloudinary &amp; Image Storage Uploads</li>
+              <li><i class="fa-solid fa-check"></i> Payment Gateway &amp; SMS Integration</li>
+            </ul>
+            <button type="button" class="btn btn-whatsapp btn-sm service-action-btn" onclick="openDirectWhatsApp('Inquiring about WhatsApp Solution & Automations')">
+              <i class="fa-brands fa-whatsapp"></i> <span>Inquire WhatsApp Bot</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills & Engineering Arsenal -->
+    <section class="section" id="techstack">
+      <div class="container">
+        <div class="section-header">
+          <div class="badge badge-glow">
+            <i class="fa-solid fa-microchip"></i>
+            <span>Engineering Arsenal</span>
+          </div>
+          <h2 class="section-title">Technical <span class="gradient-accent-text">Skills &amp; Architecture</span></h2>
+          <p class="section-desc">
+            Modern technology stack selected for maximum performance, rock-solid stability, and zero unnecessary runtime overhead.
+          </p>
+        </div>
+
+        <div class="tech-stack-container">
+          <!-- Frontend -->
+          <div class="tech-column">
+            <div class="tech-column-header">
+              <div class="tech-column-icon"><i class="fa-solid fa-palette"></i></div>
+              <h4>Frontend &amp; UI/UX</h4>
+            </div>
+            <div class="tech-items-wrap">
+              <div class="tech-badge-item"><span>HTML5 / Semantic</span> <i class="fa-brands fa-html5"></i></div>
+              <div class="tech-badge-item"><span>CSS3 / Vanilla / Grid</span> <i class="fa-brands fa-css3-alt"></i></div>
+              <div class="tech-badge-item"><span>Modern JavaScript (ES6+)</span> <i class="fa-brands fa-js"></i></div>
+              <div class="tech-badge-item"><span>React &amp; Next.js</span> <i class="fa-brands fa-react"></i></div>
+              <div class="tech-badge-item"><span>PWA &amp; Service Workers</span> <i class="fa-solid fa-mobile"></i></div>
             </div>
           </div>
 
-          <!-- BAS Mockup Preview -->
-          <div class="case-study-preview">
-            <div class="preview-browser-header">
-              <div class="terminal-dots">
-                <span class="dot-red"></span>
-                <span class="dot-yellow"></span>
-                <span class="dot-green"></span>
-              </div>
-              <div class="url-bar">
-                <i class="fa-solid fa-lock" style="color:#10b981; font-size: 0.75rem;"></i>
-                <span>https://bas.dwatson.co/ (Bilal Accounting System)</span>
-              </div>
+          <!-- Backend & APIs -->
+          <div class="tech-column">
+            <div class="tech-column-header">
+              <div class="tech-column-icon"><i class="fa-solid fa-server"></i></div>
+              <h4>Backend &amp; APIs</h4>
             </div>
+            <div class="tech-items-wrap">
+              <div class="tech-badge-item"><span>Node.js &amp; Express</span> <i class="fa-brands fa-node-js"></i></div>
+              <div class="tech-badge-item"><span>Python &amp; REST APIs</span> <i class="fa-brands fa-python"></i></div>
+              <div class="tech-badge-item"><span>PHP &amp; Server Scripts</span> <i class="fa-brands fa-php"></i></div>
+              <div class="tech-badge-item"><span>Serverless Cloud Functions</span> <i class="fa-solid fa-cloud-bolt"></i></div>
+              <div class="tech-badge-item"><span>WhatsApp Business API</span> <i class="fa-brands fa-whatsapp"></i></div>
+            </div>
+          </div>
 
-            <div class="preview-features-list">
-              <div class="preview-item">
-                <div class="preview-item-left">
-                  <i class="fa-solid fa-cash-register"></i>
-                  <span>Point of Sale (POS) &amp; Billing Terminal</span>
-                </div>
-                <span class="preview-badge">Fast</span>
-              </div>
+          <!-- Databases & Cloud -->
+          <div class="tech-column">
+            <div class="tech-column-header">
+              <div class="tech-column-icon"><i class="fa-solid fa-database"></i></div>
+              <h4>Databases &amp; Cloud</h4>
+            </div>
+            <div class="tech-items-wrap">
+              <div class="tech-badge-item"><span>PostgreSQL / MySQL</span> <i class="fa-solid fa-database"></i></div>
+              <div class="tech-badge-item"><span>Firebase Firestore</span> <i class="fa-solid fa-fire"></i></div>
+              <div class="tech-badge-item"><span>JSONBin Cloud Database</span> <i class="fa-solid fa-cubes"></i></div>
+              <div class="tech-badge-item"><span>Cloudinary Cloud Media</span> <i class="fa-solid fa-image"></i></div>
+              <div class="tech-badge-item"><span>Vercel &amp; Cloud Hosting</span> <i class="fa-solid fa-cloud"></i></div>
+            </div>
+          </div>
 
-              <div class="preview-item">
-                <div class="preview-item-left">
-                  <i class="fa-solid fa-book-bookmark"></i>
-                  <span>Automated Balance Sheets &amp; Ledgers</span>
-                </div>
-                <span class="preview-badge">Real-Time</span>
-              </div>
-
-              <div class="preview-item">
-                <div class="preview-item-left">
-                  <i class="fa-solid fa-truck-ramp-box"></i>
-                  <span>Supplier &amp; Purchase Order Workflows</span>
-                </div>
-                <span class="preview-badge">Automated</span>
-              </div>
-
-              <div class="preview-item">
-                <div class="preview-item-left">
-                  <i class="fa-solid fa-building"></i>
-                  <span>Multi-Branch Synchronization</span>
-                </div>
-                <span class="preview-badge">Enterprise</span>
-              </div>
-
-              <div class="preview-item">
-                <div class="preview-item-left">
-                  <i class="fa-solid fa-cloud-arrow-up"></i>
-                  <span>Secure Daily Cloud Backups</span>
-                </div>
-                <span class="preview-badge">Encrypted</span>
-              </div>
+          <!-- Quality & Performance -->
+          <div class="tech-column">
+            <div class="tech-column-header">
+              <div class="tech-column-icon"><i class="fa-solid fa-shield-halved"></i></div>
+              <h4>Security &amp; DevOps</h4>
+            </div>
+            <div class="tech-items-wrap">
+              <div class="tech-badge-item"><span>Git &amp; Version Control</span> <i class="fa-brands fa-git-alt"></i></div>
+              <div class="tech-badge-item"><span>AES-256-GCM Encryption</span> <i class="fa-solid fa-lock"></i></div>
+              <div class="tech-badge-item"><span>Google Core Web Vitals (90+)</span> <i class="fa-solid fa-gauge"></i></div>
+              <div class="tech-badge-item"><span>Zero-Stale Cache Control</span> <i class="fa-solid fa-circle-check"></i></div>
+              <div class="tech-badge-item"><span>DRAP Health Compliance</span> <i class="fa-solid fa-shield-virus"></i></div>
             </div>
           </div>
         </div>
       </div>
+    </section>
 
-      <!-- Project 2: D. Watson Web Platform -->
-      <div class="case-study-card">
-        <div class="case-study-grid">
-          <div>
-            <div class="case-study-meta">
-              <span class="badge" style="background: rgba(225, 29, 72, 0.15); color:#ff859d; border-color: rgba(225, 29, 72, 0.3);">
-                <i class="fa-solid fa-handshake"></i> Our Premier Corporate Customer
-              </span>
-              <span class="badge" style="background: rgba(6, 182, 212, 0.15); color:#67e8f9; border-color: rgba(6, 182, 212, 0.3);">
-                <i class="fa-solid fa-shield-check"></i> Enterprise Web &amp; E-Commerce Platform
-              </span>
+    <!-- How We Work Process -->
+    <section class="section section-dark" id="process">
+      <div class="container">
+        <div class="section-header">
+          <div class="badge badge-glow">
+            <i class="fa-solid fa-route"></i>
+            <span>Execution Roadmap</span>
+          </div>
+          <h2 class="section-title">How <span class="gradient-accent-text">Bilal Shah</span> Delivers Your Project</h2>
+          <p class="section-desc">
+            Direct developer communication, rapid prototyping, and clean architecture without middleman delays.
+          </p>
+        </div>
+
+        <div class="workflow-grid">
+          <div class="workflow-card">
+            <div class="workflow-step-num">01</div>
+            <h3 class="workflow-title">Discovery on WhatsApp</h3>
+            <p class="workflow-text">
+              We connect directly on WhatsApp (<strong>0348-5511763</strong>) to discuss your business requirements, software needs, and timeline.
+            </p>
+          </div>
+
+          <div class="workflow-card">
+            <div class="workflow-step-num">02</div>
+            <h3 class="workflow-title">Architecture &amp; Design</h3>
+            <p class="workflow-text">
+              Designing clean database structures, intuitive user interfaces, and smooth workflows that your employees and customers will love.
+            </p>
+          </div>
+
+          <div class="workflow-card">
+            <div class="workflow-step-num">03</div>
+            <h3 class="workflow-title">Development &amp; Testing</h3>
+            <p class="workflow-text">
+              Engineering robust software, setting up APIs, testing across mobile/desktop, and verifying speed and security.
+            </p>
+          </div>
+
+          <div class="workflow-card">
+            <div class="workflow-step-num">04</div>
+            <h3 class="workflow-title">Deployment &amp; Support</h3>
+            <p class="workflow-text">
+              Going live on your custom domain, training your team if required, and providing long-term maintenance and updates.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Project Inquiry & WhatsApp Contact Section -->
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="inquiry-grid">
+          <div class="inquiry-info">
+            <div class="badge badge-glow">
+              <i class="fa-brands fa-whatsapp"></i>
+              <span>Direct WhatsApp Solution</span>
             </div>
 
-            <h3 class="case-study-title">Customer Spotlight: D. Watson Chemist &amp; Superstore</h3>
-            <p class="case-study-text">
-              <strong>D. Watson Chemist &amp; Superstore chose BAS-Software Solutions</strong> as their official technology partner to engineer their comprehensive digital e-commerce and retail platform. Built from scratch to power over 15,000 healthcare, cosmetics, and superstore products across 24 flagship branches in Islamabad, Rawalpindi, Lahore, Faisalabad, and Peshawar.
+            <h2 class="inquiry-title">Ready to Start Your <span class="gradient-accent-text">Software or Website?</span></h2>
+
+            <p class="inquiry-desc">
+              Connect directly with <strong>Bilal Shah</strong>. Whether you need a company accounting/ERP software, an enterprise e-commerce platform, or a modern corporate website, get immediate feedback and a clear quote.
             </p>
 
-            <div class="case-study-highlights">
-              <div class="highlight-box">
-                <i class="fa-solid fa-magnifying-glass"></i>
-                <div>
-                  <strong>15,000+ Instant Catalog Search</strong>
-                  <span>Sub-second fuzzy search with category taxonomies and branch inventory indicators.</span>
+            <div class="contact-channels">
+              <a href="https://wa.me/923485511763?text=Hi%20Bilal%20Shah!%20I%20want%20to%20hire%20you%20for%20software%20/%20website%20development." target="_blank" class="channel-item whatsapp-channel" title="Open WhatsApp Chat with Bilal Shah">
+                <div class="channel-icon">
+                  <i class="fa-brands fa-whatsapp"></i>
                 </div>
-              </div>
-
-              <div class="highlight-box">
-                <i class="fa-solid fa-prescription"></i>
-                <div>
-                  <strong>WhatsApp Prescription Ordering</strong>
-                  <span>Automated upload and routing to the nearest flagship branch helpline.</span>
+                <div class="channel-details">
+                  <small>Official WhatsApp Solution</small>
+                  <strong>0348-5511763 (+92 348 5511763)</strong>
                 </div>
-              </div>
-
-              <div class="highlight-box">
-                <i class="fa-solid fa-gauge-high"></i>
-                <div>
-                  <strong>Dynamic Cloud Admin Studio</strong>
-                  <span>AES-256 encrypted management portal for live announcements, banners, and vouchers.</span>
-                </div>
-              </div>
-
-              <div class="highlight-box">
-                <i class="fa-solid fa-mobile"></i>
-                <div>
-                  <strong>PWA with Offline Service Worker</strong>
-                  <span>Fast offline caching, native bottom navigation, and zero-stale cache versioning.</span>
-                </div>
-              </div>
-            </div>
-
-            <div style="display: flex; gap: 14px; flex-wrap: wrap;">
-              <a href="https://www.dwatson.co/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
-                <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                <span>Open Live www.dwatson.co</span>
               </a>
-              <button type="button" class="btn btn-secondary btn-sm" onclick="openDirectWhatsApp('Building an E-Commerce Website like D. Watson')">
-                <i class="fa-brands fa-whatsapp"></i>
-                <span>Build Similar E-Commerce Site</span>
-              </button>
-            </div>
-          </div>
 
-          <!-- Browser Preview -->
-          <div class="case-study-preview">
-            <div class="preview-browser-header">
-              <div class="terminal-dots">
-                <span class="dot-red"></span>
-                <span class="dot-yellow"></span>
-                <span class="dot-green"></span>
-              </div>
-              <div class="url-bar">
-                <i class="fa-solid fa-lock" style="color:#10b981; font-size: 0.75rem;"></i>
-                <span>https://www.dwatson.co/</span>
-              </div>
-            </div>
-
-            <div class="preview-features-list">
-              <div class="preview-item">
-                <div class="preview-item-left">
-                  <i class="fa-solid fa-store"></i>
-                  <span>13 Complete Retail Departments</span>
+              <a href="tel:+923485511763" class="channel-item" title="Call Bilal Shah Directly">
+                <div class="channel-icon">
+                  <i class="fa-solid fa-phone-volume"></i>
                 </div>
-                <span class="preview-badge">Catalog</span>
-              </div>
-
-              <div class="preview-item">
-                <div class="preview-item-left">
-                  <i class="fa-solid fa-map-location-dot"></i>
-                  <span>24 Flagship Branches Geolocation</span>
+                <div class="channel-details">
+                  <small>Direct Phone Call</small>
+                  <strong>0348-5511763</strong>
                 </div>
-                <span class="preview-badge">Live Maps</span>
-              </div>
+              </a>
 
-              <div class="preview-item">
-                <div class="preview-item-left">
-                  <i class="fa-solid fa-shield-halved"></i>
-                  <span>DRAP &amp; Regulatory Compliance</span>
+              <div class="channel-item">
+                <div class="channel-icon">
+                  <i class="fa-solid fa-building-user"></i>
                 </div>
-                <span class="preview-badge">Verified</span>
+                <div class="channel-details">
+                  <small>Company &amp; Agency</small>
+                  <strong>BAS-Software Solutions</strong>
+                </div>
               </div>
 
-              <div class="preview-item">
-                <div class="preview-item-left">
+              <div class="channel-item">
+                <div class="channel-icon">
                   <i class="fa-solid fa-bolt"></i>
-                  <span>Ultra-Fast Responsive Performance</span>
                 </div>
-                <span class="preview-badge">90+ Speed</span>
+                <div class="channel-details">
+                  <small>Response Time</small>
+                  <strong>Immediate WhatsApp response &amp; free consultation</strong>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- Comprehensive Services Section -->
-  <section class="section" id="services" style="background: rgba(14, 20, 36, 0.45);">
-    <div class="container">
-      <div class="section-header">
-        <div class="badge badge-glow">
-          <i class="fa-solid fa-handshake"></i>
-          <span>What We Offer</span>
-        </div>
-        <h2 class="section-title">Professional <span class="gradient-accent-text">Software &amp; Web Services</span></h2>
-        <p class="section-desc">
-          High-quality, reliable, and scalable digital solutions for companies, businesses, and entrepreneurs. Everything is custom-engineered without bloatware.
-        </p>
-      </div>
-
-      <div class="services-grid">
-        <!-- Service 1: Company Software & Accounting -->
-        <div class="service-card">
-          <div class="service-icon-wrap">
-            <i class="fa-solid fa-file-invoice-dollar"></i>
-          </div>
-          <h3 class="service-title">Company Software &amp; Accounting (ERP)</h3>
-          <p class="service-desc">
-            Custom business software tailored to your company's exact operational flow. Powered by our proven <strong>Bilal Accounting System (BAS)</strong> framework.
-          </p>
-          <ul class="service-features">
-            <li><i class="fa-solid fa-check"></i> Invoicing, Ledgers, Balance Sheets &amp; Tax</li>
-            <li><i class="fa-solid fa-check"></i> Multi-Branch Inventory &amp; Stock Tracking</li>
-            <li><i class="fa-solid fa-check"></i> Point of Sale (POS) &amp; Barcode Printing</li>
-          </ul>
-          <button type="button" class="btn btn-whatsapp btn-sm" style="margin-top: 10px;" onclick="openDirectWhatsApp('Inquiring about Custom Company Software / Accounting System')">
-            <i class="fa-brands fa-whatsapp"></i> Inquire for Company
-          </button>
-        </div>
-
-        <!-- Service 2: E-Commerce Platforms -->
-        <div class="service-card">
-          <div class="service-icon-wrap">
-            <i class="fa-solid fa-cart-shopping"></i>
-          </div>
-          <h3 class="service-title">High-Performance E-Commerce Stores</h3>
-          <p class="service-desc">
-            Full-stack online stores engineered for large catalogs, instant search, fast loading, cart optimization, and automated WhatsApp order dispatch.
-          </p>
-          <ul class="service-features">
-            <li><i class="fa-solid fa-check"></i> 10,000+ SKU Catalog In-Memory Search</li>
-            <li><i class="fa-solid fa-check"></i> WhatsApp Direct One-Tap Ordering</li>
-            <li><i class="fa-solid fa-check"></i> Online Payment Gateways &amp; COD</li>
-          </ul>
-          <button type="button" class="btn btn-whatsapp btn-sm" style="margin-top: 10px;" onclick="openDirectWhatsApp('Inquiring about E-Commerce Website Development')">
-            <i class="fa-brands fa-whatsapp"></i> Inquire E-Commerce
-          </button>
-        </div>
-
-        <!-- Service 3: Corporate & Brand Websites -->
-        <div class="service-card">
-          <div class="service-icon-wrap">
-            <i class="fa-solid fa-globe"></i>
-          </div>
-          <h3 class="service-title">Modern Corporate &amp; Business Websites</h3>
-          <p class="service-desc">
-            Stunning, mobile-responsive websites that establish immediate brand credibility, rank high on Google (SEO), and convert visitors into paying clients.
-          </p>
-          <ul class="service-features">
-            <li><i class="fa-solid fa-check"></i> 100% Mobile, Tablet &amp; Desktop Friendly</li>
-            <li><i class="fa-solid fa-check"></i> Google Search SEO &amp; Fast Indexing</li>
-            <li><i class="fa-solid fa-check"></i> Contact Forms, Live Maps &amp; WhatsApp Chat</li>
-          </ul>
-          <button type="button" class="btn btn-whatsapp btn-sm" style="margin-top: 10px;" onclick="openDirectWhatsApp('Inquiring about Corporate Website Development')">
-            <i class="fa-brands fa-whatsapp"></i> Inquire Website
-          </button>
-        </div>
-
-        <!-- Service 4: Custom Web Applications -->
-        <div class="service-card">
-          <div class="service-icon-wrap">
-            <i class="fa-solid fa-laptop-code"></i>
-          </div>
-          <h3 class="service-title">Custom Web Applications &amp; SaaS</h3>
-          <p class="service-desc">
-            Cloud-based software to automate internal company operations, employee management, customer portals, or new SaaS business ideas.
-          </p>
-          <ul class="service-features">
-            <li><i class="fa-solid fa-check"></i> Multi-User Roles &amp; Permissions</li>
-            <li><i class="fa-solid fa-check"></i> Live Data Sync &amp; Interactive Tables</li>
-            <li><i class="fa-solid fa-check"></i> Custom Business Workflow Logic</li>
-          </ul>
-          <button type="button" class="btn btn-whatsapp btn-sm" style="margin-top: 10px;" onclick="openDirectWhatsApp('Inquiring about Custom Web Application Development')">
-            <i class="fa-brands fa-whatsapp"></i> Inquire Web App
-          </button>
-        </div>
-
-        <!-- Service 5: Admin Dashboards & Portals -->
-        <div class="service-card">
-          <div class="service-icon-wrap">
-            <i class="fa-solid fa-chart-pie"></i>
-          </div>
-          <h3 class="service-title">Custom Business Admin Dashboards</h3>
-          <p class="service-desc">
-            Stop paying monthly SaaS subscriptions. We build private, secure admin studios for your company to control sales, staff, branches, and content.
-          </p>
-          <ul class="service-features">
-            <li><i class="fa-solid fa-check"></i> Real-Time Sales &amp; Revenue Analytics</li>
-            <li><i class="fa-solid fa-check"></i> Promotional Banner &amp; Voucher Manager</li>
-            <li><i class="fa-solid fa-check"></i> AES-256 Encrypted Login Security</li>
-          </ul>
-          <button type="button" class="btn btn-whatsapp btn-sm" style="margin-top: 10px;" onclick="openDirectWhatsApp('Inquiring about Custom Admin Portal / Dashboard')">
-            <i class="fa-brands fa-whatsapp"></i> Inquire Dashboard
-          </button>
-        </div>
-
-        <!-- Service 6: WhatsApp Automations & APIs -->
-        <div class="service-card">
-          <div class="service-icon-wrap">
-            <i class="fa-brands fa-whatsapp"></i>
-          </div>
-          <h3 class="service-title">WhatsApp Bots &amp; API Automations</h3>
-          <p class="service-desc">
-            Automate customer communication, prescription routing, order notifications, and status alerts directly through WhatsApp.
-          </p>
-          <ul class="service-features">
-            <li><i class="fa-solid fa-check"></i> Automated WhatsApp Order Generator</li>
-            <li><i class="fa-solid fa-check"></i> Cloudinary &amp; Image Storage Uploads</li>
-            <li><i class="fa-solid fa-check"></i> Payment Gateway &amp; SMS Integration</li>
-          </ul>
-          <button type="button" class="btn btn-whatsapp btn-sm" style="margin-top: 10px;" onclick="openDirectWhatsApp('Inquiring about WhatsApp Solution & Automations')">
-            <i class="fa-brands fa-whatsapp"></i> Inquire WhatsApp Bot
-          </button>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Skills & Engineering Arsenal -->
-  <section class="section" id="techstack">
-    <div class="container">
-      <div class="section-header">
-        <div class="badge badge-glow">
-          <i class="fa-solid fa-microchip"></i>
-          <span>Engineering Arsenal</span>
-        </div>
-        <h2 class="section-title">Technical <span class="gradient-accent-text">Skills &amp; Architecture</span></h2>
-        <p class="section-desc">
-          Modern technology stack selected for maximum performance, rock-solid stability, and zero unnecessary runtime overhead.
-        </p>
-      </div>
-
-      <div class="tech-stack-container">
-        <!-- Frontend -->
-        <div class="tech-column">
-          <div class="tech-column-header">
-            <div class="tech-column-icon"><i class="fa-solid fa-palette"></i></div>
-            <h4>Frontend &amp; UI/UX</h4>
-          </div>
-          <div class="tech-items-wrap">
-            <div class="tech-badge-item"><span>HTML5 / Semantic</span> <i class="fa-brands fa-html5"></i></div>
-            <div class="tech-badge-item"><span>CSS3 / Vanilla / Grid</span> <i class="fa-brands fa-css3-alt"></i></div>
-            <div class="tech-badge-item"><span>Modern JavaScript (ES6+)</span> <i class="fa-brands fa-js"></i></div>
-            <div class="tech-badge-item"><span>React &amp; Next.js</span> <i class="fa-brands fa-react"></i></div>
-            <div class="tech-badge-item"><span>PWA &amp; Service Workers</span> <i class="fa-solid fa-mobile"></i></div>
-          </div>
-        </div>
-
-        <!-- Backend & APIs -->
-        <div class="tech-column">
-          <div class="tech-column-header">
-            <div class="tech-column-icon"><i class="fa-solid fa-server"></i></div>
-            <h4>Backend &amp; APIs</h4>
-          </div>
-          <div class="tech-items-wrap">
-            <div class="tech-badge-item"><span>Node.js &amp; Express</span> <i class="fa-brands fa-node-js"></i></div>
-            <div class="tech-badge-item"><span>Python &amp; REST APIs</span> <i class="fa-brands fa-python"></i></div>
-            <div class="tech-badge-item"><span>PHP &amp; Server Scripts</span> <i class="fa-brands fa-php"></i></div>
-            <div class="tech-badge-item"><span>Serverless Cloud Functions</span> <i class="fa-solid fa-cloud-bolt"></i></div>
-            <div class="tech-badge-item"><span>WhatsApp Business API</span> <i class="fa-brands fa-whatsapp"></i></div>
-          </div>
-        </div>
-
-        <!-- Databases & Cloud -->
-        <div class="tech-column">
-          <div class="tech-column-header">
-            <div class="tech-column-icon"><i class="fa-solid fa-database"></i></div>
-            <h4>Databases &amp; Cloud</h4>
-          </div>
-          <div class="tech-items-wrap">
-            <div class="tech-badge-item"><span>PostgreSQL / MySQL</span> <i class="fa-solid fa-database"></i></div>
-            <div class="tech-badge-item"><span>Firebase Firestore</span> <i class="fa-solid fa-fire"></i></div>
-            <div class="tech-badge-item"><span>JSONBin Cloud Database</span> <i class="fa-solid fa-cubes"></i></div>
-            <div class="tech-badge-item"><span>Cloudinary Cloud Media</span> <i class="fa-solid fa-image"></i></div>
-            <div class="tech-badge-item"><span>Vercel &amp; AWS Hosting</span> <i class="fa-brands fa-aws"></i></div>
-          </div>
-        </div>
-
-        <!-- Quality & Performance -->
-        <div class="tech-column">
-          <div class="tech-column-header">
-            <div class="tech-column-icon"><i class="fa-solid fa-shield-halved"></i></div>
-            <h4>Security &amp; DevOps</h4>
-          </div>
-          <div class="tech-items-wrap">
-            <div class="tech-badge-item"><span>Git &amp; Version Control</span> <i class="fa-brands fa-git-alt"></i></div>
-            <div class="tech-badge-item"><span>AES-256-GCM Encryption</span> <i class="fa-solid fa-lock"></i></div>
-            <div class="tech-badge-item"><span>Google Core Web Vitals (90+)</span> <i class="fa-solid fa-gauge"></i></div>
-            <div class="tech-badge-item"><span>Zero-Stale Cache Control</span> <i class="fa-solid fa-circle-check"></i></div>
-            <div class="tech-badge-item"><span>DRAP Health Compliance</span> <i class="fa-solid fa-shield-virus"></i></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- How We Work Process -->
-  <section class="section" id="process" style="background: rgba(14, 20, 36, 0.4);">
-    <div class="container">
-      <div class="section-header">
-        <div class="badge badge-glow">
-          <i class="fa-solid fa-route"></i>
-          <span>Execution Roadmap</span>
-        </div>
-        <h2 class="section-title">How <span class="gradient-accent-text">Bilal Shah</span> Delivers Your Project</h2>
-        <p class="section-desc">
-          Direct communication, rapid prototyping, and clean architecture without middleman delays.
-        </p>
-      </div>
-
-      <div class="workflow-grid">
-        <div class="workflow-card">
-          <div class="workflow-step-num">01</div>
-          <h3 class="workflow-title">Discovery on WhatsApp</h3>
-          <p class="workflow-text">
-            We connect directly on WhatsApp (<strong>0348-5511763</strong>) to discuss your business requirements, software needs, and timeline.
-          </p>
-        </div>
-
-        <div class="workflow-card">
-          <div class="workflow-step-num">02</div>
-          <h3 class="workflow-title">Architecture &amp; Design</h3>
-          <p class="workflow-text">
-            Designing clean database structures, intuitive user interfaces, and smooth workflows that your employees and customers will love.
-          </p>
-        </div>
-
-        <div class="workflow-card">
-          <div class="workflow-step-num">03</div>
-          <h3 class="workflow-title">Development &amp; Testing</h3>
-          <p class="workflow-text">
-            Engineering robust software, setting up APIs, testing across mobile/desktop, and verifying speed and security.
-          </p>
-        </div>
-
-        <div class="workflow-card">
-          <div class="workflow-step-num">04</div>
-          <h3 class="workflow-title">Deployment &amp; Support</h3>
-          <p class="workflow-text">
-            Going live on your custom domain, training your team if required, and providing long-term maintenance and updates.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Project Inquiry & WhatsApp Contact Section -->
-  <section class="section" id="contact">
-    <div class="container">
-      <div class="inquiry-grid">
-        <div class="inquiry-info">
-          <div class="badge badge-glow" style="align-self: flex-start;">
-            <i class="fa-brands fa-whatsapp"></i>
-            <span>Direct WhatsApp Solution</span>
-          </div>
-
-          <h2 class="inquiry-title">Ready to Start Your <span class="gradient-accent-text">Software or Website?</span></h2>
-
-          <p class="inquiry-desc">
-            Connect directly with <strong>Bilal Shah</strong>. Whether you need a company accounting/ERP software, an enterprise e-commerce platform, or a modern corporate website, get immediate feedback and a clear quote.
-          </p>
-
-          <div class="contact-channels">
-            <a href="https://wa.me/923485511763?text=Hi%20Bilal%20Shah!%20I%20want%20to%20hire%20you%20for%20software%20/%20website%20development." target="_blank" class="channel-item whatsapp-channel">
-              <div class="channel-icon">
-                <i class="fa-brands fa-whatsapp"></i>
+          <!-- Project Quote Form -->
+          <div class="inquiry-form-wrap">
+            <form class="inquiry-form" id="inquiryForm" novalidate>
+              <div class="form-header">
+                <h3 class="form-title">Get a Project Quote</h3>
+                <p class="form-subtitle">Fill out this quick form and click below to send directly to Bilal Shah's WhatsApp.</p>
               </div>
-              <div class="channel-details">
-                <small>Official WhatsApp Solution</small>
-                <strong>0348-5511763 (+92 348 5511763)</strong>
-              </div>
-            </a>
+              
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="clientName">Your Name <span class="required-star">*</span></label>
+                  <input type="text" id="clientName" class="form-control" placeholder="e.g. Mr. Khan / Director" required autocomplete="name">
+                </div>
 
-            <a href="tel:+923485511763" class="channel-item">
-              <div class="channel-icon">
-                <i class="fa-solid fa-phone-volume"></i>
+                <div class="form-group">
+                  <label for="clientCompany">Company / Business Name</label>
+                  <input type="text" id="clientCompany" class="form-control" placeholder="e.g. Pharmacy / Retail / Tech Co" autocomplete="organization">
+                </div>
               </div>
-              <div class="channel-details">
-                <small>Direct Phone Call</small>
-                <strong>0348-5511763</strong>
-              </div>
-            </a>
 
-            <div class="channel-item">
-              <div class="channel-icon">
-                <i class="fa-solid fa-building-user"></i>
-              </div>
-              <div class="channel-details">
-                <small>Company &amp; Agency</small>
-                <strong>BAS-Software Solutions</strong>
-              </div>
-            </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="clientContact">WhatsApp / Phone <span class="required-star">*</span></label>
+                  <input type="tel" id="clientContact" class="form-control" placeholder="03XX-XXXXXXX" required autocomplete="tel">
+                </div>
 
-            <div class="channel-item">
-              <div class="channel-icon">
-                <i class="fa-solid fa-bolt"></i>
-              </div>
-              <div class="channel-details">
-                <small>Response Time</small>
-                <strong>Immediate WhatsApp response &amp; free consultation</strong>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Project Quote Form -->
-        <div class="inquiry-form-wrap">
-          <form class="inquiry-form" id="inquiryForm">
-            <h3 style="font-size: 1.4rem; margin-bottom: 4px;">Get a Project Quote</h3>
-            <p style="font-size: 0.85rem; color: #94A3B8; margin-bottom: 12px;">Fill out this quick form and click below to send directly to Bilal Shah's WhatsApp.</p>
-            
-            <div class="form-row">
-              <div class="form-group">
-                <label for="clientName">Your Name *</label>
-                <input type="text" id="clientName" class="form-control" placeholder="e.g. Mr. Khan / Director" required>
+                <div class="form-group">
+                  <label for="projectType">Service Required <span class="required-star">*</span></label>
+                  <select id="projectType" class="form-control" required>
+                    <option value="Company Software / Accounting System (BAS)">Company Software &amp; Accounting System (BAS)</option>
+                    <option value="High-Performance E-Commerce Platform">High-Performance E-Commerce Platform</option>
+                    <option value="Corporate / Business Website">Corporate / Business Website</option>
+                    <option value="Custom Web Application / Portal">Custom Web Application / Portal</option>
+                    <option value="Business Admin Dashboard">Custom Business Admin Dashboard</option>
+                    <option value="WhatsApp Bot / API Integration">WhatsApp Bot &amp; API Integration</option>
+                    <option value="Software Maintenance & Upgrades">Software Maintenance &amp; Upgrades</option>
+                  </select>
+                </div>
               </div>
 
               <div class="form-group">
-                <label for="clientCompany">Company / Business Name</label>
-                <input type="text" id="clientCompany" class="form-control" placeholder="e.g. Pharmacy / Retail / Tech Co">
-              </div>
-            </div>
-
-            <div class="form-row">
-              <div class="form-group">
-                <label for="clientContact">WhatsApp / Phone *</label>
-                <input type="text" id="clientContact" class="form-control" placeholder="03XX-XXXXXXX" required>
-              </div>
-
-              <div class="form-group">
-                <label for="projectType">Service Required *</label>
-                <select id="projectType" class="form-control" required>
-                  <option value="Company Software / Accounting System (BAS)">Company Software &amp; Accounting System (BAS)</option>
-                  <option value="High-Performance E-Commerce Platform">High-Performance E-Commerce Platform</option>
-                  <option value="Corporate / Business Website">Corporate / Business Website</option>
-                  <option value="Custom Web Application / Portal">Custom Web Application / Portal</option>
-                  <option value="Business Admin Dashboard">Custom Business Admin Dashboard</option>
-                  <option value="WhatsApp Bot / API Integration">WhatsApp Bot &amp; API Integration</option>
-                  <option value="Software Maintenance & Upgrades">Software Maintenance &amp; Upgrades</option>
+                <label for="projectBudget">Estimated Project Budget</label>
+                <select id="projectBudget" class="form-control">
+                  <option value="Flexible / Discuss on WhatsApp">Flexible / Discuss on WhatsApp</option>
+                  <option value="Standard Starter Package (PKR 50k - 150k / $200 - $600)">Standard Starter Package (PKR 50k - 150k)</option>
+                  <option value="Professional Business System (PKR 150k - 400k / $600 - $1,500)">Professional Business System (PKR 150k - 400k)</option>
+                  <option value="Enterprise / Multi-Branch Software (PKR 400k+ / $1,500+)">Enterprise / Multi-Branch Software (PKR 400k+)</option>
                 </select>
               </div>
-            </div>
 
-            <div class="form-group">
-              <label for="projectBudget">Estimated Project Budget</label>
-              <select id="projectBudget" class="form-control">
-                <option value="Flexible / Discuss on WhatsApp">Flexible / Discuss on WhatsApp</option>
-                <option value="Standard Starter Package (PKR 50k - 150k / $200 - $600)">Standard Starter Package (PKR 50k - 150k)</option>
-                <option value="Professional Business System (PKR 150k - 400k / $600 - $1,500)">Professional Business System (PKR 150k - 400k)</option>
-                <option value="Enterprise / Multi-Branch Software (PKR 400k+ / $1,500+)">Enterprise / Multi-Branch Software (PKR 400k+)</option>
-              </select>
-            </div>
+              <div class="form-group">
+                <label for="projectDetails">Project Requirements &amp; Description <span class="required-star">*</span></label>
+                <textarea id="projectDetails" class="form-control" placeholder="Tell us about the software or website you want to build..." required></textarea>
+              </div>
 
-            <div class="form-group">
-              <label for="projectDetails">Project Requirements &amp; Description *</label>
-              <textarea id="projectDetails" class="form-control" placeholder="Tell us about the software or website you want to build..." required></textarea>
-            </div>
+              <div id="formStatusMsg" class="form-status-msg" role="status" aria-live="polite"></div>
 
-            <div id="formStatusMsg" class="form-status-msg"></div>
-
-            <button type="submit" class="btn btn-whatsapp" style="width: 100%; font-size: 1.05rem; padding: 15px;">
-              <i class="fa-brands fa-whatsapp" style="font-size: 1.3rem;"></i>
-              <span>Send Inquiry to Bilal Shah (0348-5511763)</span>
-            </button>
-          </form>
+              <button type="submit" class="btn btn-whatsapp btn-full btn-lg" id="submitFormBtn">
+                <i class="fa-brands fa-whatsapp"></i>
+                <span>Send Inquiry to Bilal Shah (0348-5511763)</span>
+              </button>
+            </form>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
   <!-- Site Footer -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-inner">
         <div class="footer-brand">
-          <div class="brand-icon-box" style="width: 38px; height: 38px; font-size: 1.1rem;">
+          <div class="brand-icon-box">
             <i class="fa-solid fa-code"></i>
           </div>
           <div>
-            <strong style="font-size: 1.15rem;">BAS-Software Solutions</strong>
+            <strong class="footer-brand-title">BAS-Software Solutions</strong>
             <p class="footer-desc">&copy; 2026 BAS-Software Solutions &bull; Bilal Shah. All Rights Reserved.</p>
           </div>
         </div>
 
-        <div class="footer-links">
-          <a href="https://wa.me/923485511763" target="_blank" class="footer-link" style="color:#25D366; font-weight:700;"><i class="fa-brands fa-whatsapp"></i> 0348-5511763</a>
-          <span style="color: rgba(255,255,255,0.2);">&bull;</span>
-          <a href="https://www.dwatson.co/" target="_blank" rel="noopener noreferrer" class="footer-link">Client: www.dwatson.co</a>
-          <span style="color: rgba(255,255,255,0.2);">&bull;</span>
+        <nav class="footer-nav" aria-label="Footer Navigation">
+          <a href="https://wa.me/923485511763" target="_blank" class="footer-link wa-link">
+            <i class="fa-brands fa-whatsapp"></i> 0348-5511763
+          </a>
+          <a href="https://www.dwatson.co/" target="_blank" rel="noopener noreferrer" class="footer-link">
+            Client: www.dwatson.co
+          </a>
           <a href="#services" class="footer-link">Services</a>
-          <span style="color: rgba(255,255,255,0.2);">&bull;</span>
           <a href="#portfolio" class="footer-link">Portfolio</a>
-          <span style="color: rgba(255,255,255,0.2);">&bull;</span>
           <a href="#contact" class="footer-link">Contact</a>
-          <span style="color: rgba(255,255,255,0.2);">&bull;</span>
-          <a href="#about" class="footer-link" title="Scroll to Top"><i class="fa-solid fa-arrow-up"></i> Top</a>
-        </div>
+          <a href="#about" class="footer-link top-link" title="Scroll to Top">
+            <i class="fa-solid fa-arrow-up"></i> Top
+          </a>
+        </nav>
       </div>
     </div>
   </footer>
 
-  <!-- Scripts -->
+  <!-- Main JavaScript Controller -->
   <script src="js/main.js"></script>
 </body>
 </html>
