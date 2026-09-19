@@ -1,0 +1,8 @@
+{
+  "name": "bas-developer-website",
+  "version": "1.0.0",
+  "description": "BAS-Software Solutions - Lead Developer Bilal Shah | Company Software & Web Platforms",
+  "scripts": {
+    "dev": "vercel dev"
+  }
+}
